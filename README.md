@@ -6,7 +6,7 @@ HEAT Java server container. See releases at: https://github.com/Heat-Ledger-Ltd/
 
 ## Building image
 
-Check docker hub releases for exact image versions: 
+Check docker hub releases for exact image versions: https://hub.docker.com/r/jussil/heatledger/
 
   - [Install Docker](https://docs.docker.com/engine/installation/)
   - Run in the repository dir `docker build -t heatledger .`
@@ -26,9 +26,16 @@ docker run -d --name heatledger \
   jussil/heatledger
 ```
 
+## Configuration
+
+All passed environment variables that starts with heat__ will be used as config. First we transform `__` characters into `.` to match properties config style and then replace provided config values from base properties file.
+
+You should check default configurations from running container under `/opt/heatledger/conf/heat-default.properties`
+
 ## Notes
 
 - Install guide of HEAT Server that were used to do this image
   - http://heatnodes.org/heatnodes.pdf
 
-2017 Jussi Lindfors
+## Author
+Jussi Lindfors
