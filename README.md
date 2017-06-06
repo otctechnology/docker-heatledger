@@ -16,7 +16,7 @@ Check docker hub releases for exact image versions: https://hub.docker.com/r/jus
   - [Install Docker](https://docs.docker.com/engine/installation/)
   - Pull the image: `docker pull jussil/heatledger` (or some other image tags)
   - Run the container detached:
-  ```
+```
 docker run -d --name heatledger \
   -p 7733:7733 \
   -p 7744:7744 \
@@ -25,6 +25,16 @@ docker run -d --name heatledger \
   -e "heat__myHallmark=<HALLMARK GENERATED FROM https://heatwallet.com/api/#!/Tools/encode>" \
   jussil/heatledger
 ```
+
+### Forging
+
+In order to start forging after server is in sync, you need to do an API request to your server with your secret phrase.
+
+You can do this by executing script inside of running server container like this (assuming you named your container `heatledger`:
+```
+docker exec heatledger /forge.sh "your secret passphrase"
+```
+
 
 ## Configuration
 

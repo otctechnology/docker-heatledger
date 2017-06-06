@@ -11,8 +11,8 @@ RUN cd /tmp \
   && mv heatledger-${HEAT_VERSION_ZIP} ${HEAT_ROOT} \
   && rm -rf /tmp/*
 
-ADD run.sh /run.sh
-RUN chmod +x /run.sh
+ADD run.sh forge.sh /
+RUN chmod +x /*.sh
 
 EXPOSE 7733 7734 7744 7755
 
