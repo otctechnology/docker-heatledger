@@ -4,25 +4,65 @@ HEAT Java server container. See releases at: https://github.com/Heat-Ledger-Ltd/
 
 > *HEAT is a cryptocurrency that works in peer-to-peer client-server configuration. By running the HEAT Java server node on your workstation or server you enhance the security of your own cryptocurrency operations, and participate in keeping up the HEAT decentralized network. By enabling forging in your HEAT wallet running on top of your own HEATnode, you are eligible for (Proof-of-Stake) rewards and blockchain file storage (Proof-of-Presence) rewards granted in average every 25 seconds to a random participant of the network.* - http://heatledger.com/
 
-## Building image
-
-Check docker hub releases for exact image versions: https://hub.docker.com/r/jussil/heatledger/
+## Requirements
 
   - [Install Docker](https://docs.docker.com/engine/installation/)
-  - Run in the repository dir `docker build -t heatledger .`
+
+## Quickstart
+
+```
+# Create hallmark
+docker run --rm jussil/heatledger /hallmark.sh "dog cat sheep .." 911.911.911.911
+
+# Run server
+docker run -d --name heatledger \
+  -p 7733:7733 \
+  -p 7744:7744 \
+  -e "heat__maxNumberOfConnectedPublicPeers=500" \
+  -e "heat__myPlatform=abc123" \
+  -e "heat__apiKey=abc123" \
+  -e "heat__myAddress=911.911.911.911" \
+  -e "heat__myHallmark=ASDF123" \
+  jussil/heatledger
+
+# Check block height
+docker logs heatledger
+
+# Start forging when on full height
+docker exec heatledger /forge.sh "your secret passphrase"
+```
 
 ## Usage
 
-  - [Install Docker](https://docs.docker.com/engine/installation/)
-  - Pull the image: `docker pull jussil/heatledger` (or some other image tags)
+### Building image
+
+Check docker hub releases for exact image versions: https://hub.docker.com/r/jussil/heatledger/
+
+  - Run in the repository dir `docker build -t jussil/heatledger .`
+
+### Creating hallmark
+
+In order to participate in lottery you need hallmark. To create it, run the container script `/hallmark.sh "<wallet secret phrase>" <PUBLIC IP/HOST>`, ie:
+```
+# If server is not running
+docker run --rm jussil/heatledger /hallmark.sh "dog cat sheep .." 911.911.911.911
+# If server is running
+docker exec heatledger /hallmark.sh "dog cat sheep .." 911.911.911.911
+```
+
+This will run the server inside the container and do the API request locally to acquire hallmark.
+
+### Run server
   - Run the container detached:
 ```
 docker run -d --name heatledger \
   -p 7733:7733 \
   -p 7744:7744 \
+  -e "heat__maxNumberOfConnectedPublicPeers=500" \
+  -e "heat__myPlatform=<HEATWALLET ACCOUNT ID (numeric)>" \
   -e "heat__apiKey=<HEATWALLET ACCOUNT ID (numeric)>" \
   -e "heat__myAddress=<PUBLIC IP/HOST OF SERVER>" \
-  -e "heat__myHallmark=<HALLMARK GENERATED FROM https://heatwallet.com/api/#!/Tools/encode>" \
+  -e "heat__myHallmark=<HALLMARK GENERATED SCRIPT OR FROM https://heatwallet.com/api/#!/Tools/encode>" \
   jussil/heatledger
 ```
 
@@ -34,7 +74,6 @@ You can do this by executing script inside of running server container like this
 ```
 docker exec heatledger /forge.sh "your secret passphrase"
 ```
-
 
 ## Configuration
 
