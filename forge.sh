@@ -18,7 +18,7 @@ fi
 
 
 url="http://localhost:${!apiServerPort_var:-7733}/api/v1/mining/start/${1// /%20}?api_key=${api_key}"
-if curl -X POST "${url}" -s | grep -q deadline ; then
+if curl "${url}" -s | grep -q deadline ; then
   echo "Forging started"
   exit 0
 fi
