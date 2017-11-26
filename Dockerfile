@@ -1,6 +1,6 @@
 FROM openjdk:8
 MAINTAINER Jussi Lindfors
-LABEL version="2.0.0"
+LABEL version="2.1.0"
 
 ENV SERVER_ROOT=/server
 ENV SERVER_BIN="${SERVER_ROOT}/bin/heatledger"
