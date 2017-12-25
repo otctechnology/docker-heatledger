@@ -13,11 +13,11 @@ if [ -z "${2}" ]; then
 fi
 
 # Start server with default settings
-screen -d -m bash -c "${SERVER_BIN}"
+screen -d -m bash -c "${SERVER_BIN} ; ${SERVER_BIN}"
 # Wait for API server to start
 /wait-for-api.sh
 if [ $? -ne 0 ]; then
-  echo "No API connection!$?"
+  echo "No API connection!"
   exit 1
 fi
 

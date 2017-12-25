@@ -13,4 +13,6 @@ do
   echo "$config_name=$config_value" >> ${server_properties_file}
 done
 
+# Hacky and dirty fix for clean storage, heat requires server to run again when there is no existing block info :()
+${SERVER_BIN}
 exec ${SERVER_BIN}
