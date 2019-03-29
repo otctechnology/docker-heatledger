@@ -1,6 +1,6 @@
-# Heatledger Cryptocurrency Server
+# OTC  Server
 
-HEAT Java server container. See releases at: https://github.com/Heat-Ledger-Ltd/heatledger
+OTC Java server container. See releases at: https://github.com/Heat-Ledger-Ltd/heatledger
 
 > *HEAT is a cryptocurrency that works in peer-to-peer client-server configuration. By running the HEAT Java server node on your workstation or server you enhance the security of your own cryptocurrency operations, and participate in keeping up the HEAT decentralized network. By enabling forging in your HEAT wallet running on top of your own HEATnode, you are eligible for (Proof-of-Stake) rewards and blockchain file storage (Proof-of-Presence) rewards granted in average every 25 seconds to a random participant of the network.* - http://heatledger.com/
 
