@@ -1,8 +1,8 @@
-# OTC  Server
+# ΘTC™ Server
 
-OTC Java server container. See releases at: https://github.com/Heat-Ledger-Ltd/heatledger
+ΘTC™ Microservice Java server container. See releases at: https://github.com/otctechnology/otc,git
 
-> *HEAT is a cryptocurrency that works in peer-to-peer client-server configuration. By running the HEAT Java server node on your workstation or server you enhance the security of your own cryptocurrency operations, and participate in keeping up the HEAT decentralized network. By enabling forging in your HEAT wallet running on top of your own HEATnode, you are eligible for (Proof-of-Stake) rewards and blockchain file storage (Proof-of-Presence) rewards granted in average every 25 seconds to a random participant of the network.* - http://heatledger.com/
+> *ΘTC™ is a Blockchain that works in peer-to-peer client-server configuration. By running the ΘTC™ Java server node on your workstation or server you enhance the security of your own smartcontract operations, and participate in keeping up the ΘTC decentralized network. By enabling forging in your ΘTC™ ID running on top of your own ΘTC™node, you are eligible for (Proof-of-Stake) rewards and blockchain file storage (Proof-of-Presence) rewards granted in average every 25 seconds to a random participant of the network.* - https://otc.network/
 
 ## Requirements
 
@@ -81,10 +81,4 @@ All passed environment variables that starts with heat__ will be used as config.
 
 You should check default configurations from running container under `/opt/heatledger/conf/heat-default.properties`
 
-## Notes
 
-- Install guide of HEAT Server that were used to do this image
-  - http://heatnodes.org/heatnodes.pdf
-
-## Author
-Jussi Lindfors
